@@ -59,8 +59,83 @@ function shadeColor(color, factor) {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-// Built-in 3D Themes (Pure White / Light Aesthetic with High-Contrast Luminous Towers)
+// Built-in 3D Themes (Cyberpunk Neon, Tokyo Night, Dracula, Synthwave, Emerald, Pearl Neon Light, etc.)
 const THEME_CONFIGS = {
+  cyberpunk: {
+    type: 'normal',
+    backgroundColor: '#050811',
+    foregroundColor: '#00f0ff',
+    strongColor: '#ffe600',
+    weakColor: '#8be9fd',
+    radarColor: '#ff007f',
+    levels: [
+      '#121b2f',
+      '#7928ca',
+      '#b800e6',
+      '#ff007f',
+      '#00f0ff',
+    ],
+  },
+  tokyonight: {
+    type: 'normal',
+    backgroundColor: '#1a1b26',
+    foregroundColor: '#c0caf5',
+    strongColor: '#ff9e64',
+    weakColor: '#565f89',
+    radarColor: '#7aa2f7',
+    levels: [
+      '#24283b',
+      '#3b4261',
+      '#7aa2f7',
+      '#bb9af7',
+      '#7dcfff',
+    ],
+  },
+  dracula: {
+    type: 'normal',
+    backgroundColor: '#282a36',
+    foregroundColor: '#f8f8f2',
+    strongColor: '#50fa7b',
+    weakColor: '#6272a4',
+    radarColor: '#ff79c6',
+    levels: [
+      '#343746',
+      '#6272a4',
+      '#bd93f9',
+      '#ff79c6',
+      '#50fa7b',
+    ],
+  },
+  synthwave: {
+    type: 'normal',
+    backgroundColor: '#261435',
+    foregroundColor: '#f8f8f2',
+    strongColor: '#fede5d',
+    weakColor: '#fe4450',
+    radarColor: '#36f9f6',
+    levels: [
+      '#3c2353',
+      '#72f1b8',
+      '#36f9f6',
+      '#fede5d',
+      '#f92aad',
+    ],
+  },
+  emerald: {
+    type: 'normal',
+    backgroundColor: '#021812',
+    foregroundColor: '#e6fffa',
+    strongColor: '#34d399',
+    weakColor: '#047857',
+    radarColor: '#10b981',
+    levels: [
+      '#064e3b',
+      '#059669',
+      '#10b981',
+      '#34d399',
+      '#6ee7b7',
+    ],
+  },
   'pearl-neon': {
     type: 'normal',
     backgroundColor: '#ffffff',
@@ -76,32 +151,62 @@ const THEME_CONFIGS = {
       '#ec4899',
     ],
   },
-  'solar-light': {
+  'white-solar': {
     type: 'normal',
     backgroundColor: '#ffffff',
-    foregroundColor: '#1e293b',
-    strongColor: '#ea580c',
+    foregroundColor: '#1c1917',
+    strongColor: '#c2410c',
     weakColor: '#78716c',
-    radarColor: '#f59e0b',
+    radarColor: '#d97706',
     levels: [
       '#f1f5f9',
       '#fbbf24',
-      '#f97316',
-      '#ef4444',
-      '#e11d48',
+      '#fb923c',
+      '#f87171',
+      '#f43f5e',
+    ],
+  },
+  'solar-light': {
+    type: 'normal',
+    backgroundColor: '#ffffff',
+    foregroundColor: '#1c1917',
+    strongColor: '#c2410c',
+    weakColor: '#78716c',
+    radarColor: '#d97706',
+    levels: [
+      '#f1f5f9',
+      '#fbbf24',
+      '#fb923c',
+      '#f87171',
+      '#f43f5e',
+    ],
+  },
+  'white-ocean': {
+    type: 'normal',
+    backgroundColor: '#ffffff',
+    foregroundColor: '#0f172a',
+    strongColor: '#0f766e',
+    weakColor: '#64748b',
+    radarColor: '#0d9488',
+    levels: [
+      '#e2e8f0',
+      '#5eead4',
+      '#38bdf8',
+      '#3b82f6',
+      '#6366f1',
     ],
   },
   'ocean-light': {
     type: 'normal',
     backgroundColor: '#ffffff',
     foregroundColor: '#0f172a',
-    strongColor: '#0284c7',
+    strongColor: '#0f766e',
     weakColor: '#64748b',
     radarColor: '#0d9488',
     levels: [
       '#e2e8f0',
-      '#2dd4bf',
-      '#0ea5e9',
+      '#5eead4',
+      '#38bdf8',
       '#3b82f6',
       '#6366f1',
     ],
@@ -123,24 +228,30 @@ const THEME_CONFIGS = {
   },
 };
 
-// Automatic alias fallback mapping for dark/removed theme configs
 const THEME_ALIASES = {
-  cyberpunk: 'pearl-neon',
-  tokyonight: 'pearl-neon',
-  dracula: 'pearl-neon',
-  synthwave: 'pearl-neon',
-  'night-view': 'pearl-neon',
-  'night-rainbow': 'pearl-neon',
-  'night-green': 'github-light',
-  green: 'github-light',
-  emerald: 'github-light',
-  matrix: 'ocean-light',
-  nord: 'ocean-light',
-  monokai: 'solar-light',
-  sunset: 'solar-light',
-  dark: 'pearl-neon',
+  'tokyo-night': 'tokyonight',
+  tokyo: 'tokyonight',
+  synthwave84: 'synthwave',
+  'synthwave-84': 'synthwave',
+  'white-ocean': 'white-ocean',
+  'ocean-light': 'white-ocean',
+  ocean: 'white-ocean',
+  whiteocean: 'white-ocean',
+  'white-solar': 'white-solar',
+  'solar-light': 'white-solar',
+  solar: 'white-solar',
+  whitesolar: 'white-solar',
+  'pearl-neon': 'pearl-neon',
+  pearlneon: 'pearl-neon',
+  pearl: 'pearl-neon',
+  white: 'pearl-neon',
   light: 'pearl-neon',
-  default: 'pearl-neon',
+  'night-view': 'cyberpunk',
+  'night-rainbow': 'cyberpunk',
+  'night-green': 'emerald',
+  green: 'emerald',
+  dark: 'cyberpunk',
+  default: 'cyberpunk',
 };
 
 /**
@@ -310,7 +421,7 @@ function renderLanguageDonut(pieX, pieY, pieWidth, pieHeight, languages, totalCo
   let out = `<g transform="translate(${pieX}, ${pieY})">\n`;
 
   // Background subtle track ring
-  out += `  <circle cx="${radius}" cy="${radius}" r="${(outerR + innerR) / 2}" fill="none" stroke="#f1f5f9" stroke-width="${outerR - innerR}"></circle>\n`;
+  out += `  <circle cx="${radius}" cy="${radius}" r="${(outerR + innerR) / 2}" fill="none" class="stroke-weak" stroke-opacity="0.25" stroke-width="${outerR - innerR}"></circle>\n`;
 
   // Legend markers & labels
   out += `  <g transform="translate(${radius * 2.2}, 0)">\n`;
@@ -324,7 +435,7 @@ function renderLanguageDonut(pieX, pieY, pieWidth, pieHeight, languages, totalCo
       out += `      <animate attributeName="fill-opacity" values="0;${(i + 1) * 0.2};1" dur="3s" repeatCount="1"></animate>\n`;
     }
     out += `    </rect>\n`;
-    out += `    <text x="${(fontSize * 1.5).toFixed(2)}" y="${y.toFixed(2)}" dominant-baseline="middle" font-size="${fontSize.toFixed(2)}px" font-weight="600" class="fill-fg">${lang.language} <tspan font-weight="400" fill="#64748b" font-size="${(fontSize * 0.9).toFixed(2)}px">${pct}%</tspan>\n`;
+    out += `    <text x="${(fontSize * 1.5).toFixed(2)}" y="${y.toFixed(2)}" dominant-baseline="middle" font-size="${fontSize.toFixed(2)}px" font-weight="600" class="fill-fg">${lang.language} <tspan font-weight="500" class="fill-weak" font-size="${(fontSize * 0.9).toFixed(2)}px">${pct}%</tspan>\n`;
     if (isAnimate) {
       out += `      <animate attributeName="fill-opacity" values="0;${(i + 1) * 0.2};1" dur="3s" repeatCount="1"></animate>\n`;
     }
