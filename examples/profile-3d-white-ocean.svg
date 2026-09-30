@@ -1,39 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="850" viewBox="0 0 1280 850">
 <style>
     * { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Ubuntu", "Helvetica", Arial, sans-serif; }
-    .fill-fg { fill: #1e293b; }
-    .stroke-fg { stroke: #1e293b; }
+    .fill-fg { fill: #0f172a; }
+    .stroke-fg { stroke: #0f172a; }
     .fill-bg { fill: #ffffff; }
     .stroke-bg { stroke: #ffffff; }
-    .fill-strong { fill: #ea580c; }
-    .fill-weak { fill: #78716c; }
-    .stroke-weak { stroke: #78716c; }
+    .fill-strong { fill: #0284c7; }
+    .fill-weak { fill: #64748b; }
+    .stroke-weak { stroke: #64748b; }
     .radar {
       stroke-width: 4px;
-      stroke: #f59e0b;
-      fill: #f59e0b;
+      stroke: #0d9488;
+      fill: #0d9488;
       fill-opacity: 0.5;
     }
   
-        .cont-top-0 { fill: #f1f5f9; }
-        .cont-left-0 { fill: rgb(201, 205, 208); }
-        .cont-right-0 { fill: rgb(169, 172, 174); }
+        .cont-top-0 { fill: #e2e8f0; }
+        .cont-left-0 { fill: rgb(189, 194, 201); }
+        .cont-right-0 { fill: rgb(158, 162, 168); }
       
-        .cont-top-1 { fill: #fbbf24; }
-        .cont-left-1 { fill: rgb(210, 160, 30); }
-        .cont-right-1 { fill: rgb(176, 134, 25); }
+        .cont-top-1 { fill: #2dd4bf; }
+        .cont-left-1 { fill: rgb(38, 177, 160); }
+        .cont-right-1 { fill: rgb(31, 148, 134); }
       
-        .cont-top-2 { fill: #f97316; }
-        .cont-left-2 { fill: rgb(208, 96, 18); }
-        .cont-right-2 { fill: rgb(174, 81, 15); }
+        .cont-top-2 { fill: #0ea5e9; }
+        .cont-left-2 { fill: rgb(12, 138, 195); }
+        .cont-right-2 { fill: rgb(10, 115, 163); }
       
-        .cont-top-3 { fill: #ef4444; }
-        .cont-left-3 { fill: rgb(200, 57, 57); }
-        .cont-right-3 { fill: rgb(167, 48, 48); }
+        .cont-top-3 { fill: #3b82f6; }
+        .cont-left-3 { fill: rgb(49, 109, 206); }
+        .cont-right-3 { fill: rgb(41, 91, 172); }
       
-        .cont-top-4 { fill: #e11d48; }
-        .cont-left-4 { fill: rgb(188, 24, 60); }
-        .cont-right-4 { fill: rgb(158, 20, 50); }
+        .cont-top-4 { fill: #6366f1; }
+        .cont-left-4 { fill: rgb(83, 85, 201); }
+        .cont-right-4 { fill: rgb(69, 71, 169); }
       </style>
 <rect x="0" y="0" width="1280" height="850" class="fill-bg"></rect>
 
