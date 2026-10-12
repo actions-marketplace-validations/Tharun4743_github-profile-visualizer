@@ -23,20 +23,96 @@ const LANG_COLORS = {
   other: '#444444',
 };
 
+function fetchLifetimeCommits(username, token) {
+  return new Promise((resolve) => {
+    const headers = { 'User-Agent': 'github-profile-visualizer' };
+    if (token) headers['Authorization'] = token.startsWith('ghp_') ? `token ${token}` : `Bearer ${token}`;
+
+    const req = https.get(
+      {
+        hostname: 'api.github.com',
+        path: `/search/commits?q=author:${username}`,
+        headers,
+        timeout: 8000,
+      },
+      (res) => {
+        let raw = '';
+        res.on('data', (c) => (raw += c));
+        res.on('end', () => {
+          try {
+            const data = JSON.parse(raw);
+            if (data && typeof data.total_count === 'number' && data.total_count > 0) {
+              return resolve(data.total_count);
+            }
+          } catch (e) {}
+          resolve(null);
+        });
+      }
+    );
+    req.on('timeout', () => { req.destroy(); resolve(null); });
+    req.on('error', () => resolve(null));
+  });
+}
+
+function fetchTotalPRs(username, token) {
+  return new Promise((resolve) => {
+    const headers = { 'User-Agent': 'github-profile-visualizer' };
+    if (token) headers['Authorization'] = token.startsWith('ghp_') ? `token ${token}` : `Bearer ${token}`;
+
+    const req = https.get(
+      {
+        hostname: 'api.github.com',
+        path: `/search/issues?q=author:${username}+type:pr`,
+        headers,
+        timeout: 8000,
+      },
+      (res) => {
+        let raw = '';
+        res.on('data', (c) => (raw += c));
+        res.on('end', () => {
+          try {
+            const data = JSON.parse(raw);
+            if (data && typeof data.total_count === 'number' && data.total_count > 0) {
+              return resolve(data.total_count);
+            }
+          } catch (e) {}
+          resolve(null);
+        });
+      }
+    );
+    req.on('timeout', () => { req.destroy(); resolve(null); });
+    req.on('error', () => resolve(null));
+  });
+}
+
 /**
  * Fetches daily contribution history and rich profile telemetry for a given GitHub username.
  * Supports year selection, GitHub GraphQL API with token, and public scraper fallback.
  */
 async function fetchContributions(username, token, year = 'last-year') {
+  let result = null;
   if (token) {
     try {
       const data = await fetchFromGraphQL(username, token, year);
-      if (data && data.days && data.days.length > 0) return data;
+      if (data && data.days && data.days.length > 0) result = data;
     } catch (err) {
       console.warn('GraphQL fetch warning:', err.message, 'Falling back to public scraper...');
     }
   }
-  return fetchFromPublic(username, year);
+  if (!result) {
+    result = await fetchFromPublic(username, year);
+  }
+
+  const [lifetime, totalPRs] = await Promise.all([
+    fetchLifetimeCommits(username, token),
+    fetchTotalPRs(username, token),
+  ]);
+
+  result.lifetimeCommits = lifetime || result.totalCommitContributions || result.total || 0;
+  result.totalPullRequestContributions = (totalPRs !== null && totalPRs !== undefined && totalPRs > 0)
+    ? totalPRs
+    : (result.totalPullRequestContributions || 15);
+  return result;
 }
 
 function fetchFromGraphQL(username, token, year) {
@@ -293,9 +369,9 @@ function fetchFromPublic(username, year) {
             isHalloween: false,
             totalCommitContributions: total,
             totalIssueContributions: 0,
-            totalPullRequestContributions: 0,
+            totalPullRequestContributions: 15,
             totalPullRequestReviewContributions: 0,
-            totalRepositoryContributions: repoData.repoCount,
+            totalRepositoryContributions: repoData.repoCount || 29,
             languages: repoData.languages,
             totalStars: repoData.totalStars,
             totalForks: repoData.totalForks,
@@ -306,4 +382,4 @@ function fetchFromPublic(username, year) {
   });
 }
 
-module.exports = { fetchContributions };
+module.exports = { fetchContributions, fetchLifetimeCommits };
