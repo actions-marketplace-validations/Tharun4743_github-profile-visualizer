@@ -180,91 +180,36 @@ Add the following layout snippet to your profile `README.md`:
 <img src="assets/executive-summary.svg" width="100%" alt="Executive Summary" />
 
 <!-- 2-Column Telemetry Grid -->
-<table border="0" width="100%">
+<table border="0" itemscope itemtype="https://schema.org/Person">
   <tr>
-    <td width="50%"><img src="assets/commit-velocity.svg" width="100%" alt="Commit Velocity" /></td>
-    <td width="50%"><img src="assets/activity-timeline.svg" width="100%" alt="Live Activity Stream" /></td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="assets/skills-radar.svg" width="100%" alt="Skills Radar" /></td>
-    <td width="50%"><img src="assets/achievements.svg" width="100%" alt="Achievements" /></td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="assets/languages-matrix.svg" width="100%" alt="Languages Matrix" /></td>
-    <td width="50%"><img src="assets/stats.svg" width="100%" alt="GitHub Core Analytics" /></td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="assets/leetcode-card.svg" width="100%" alt="LeetCode Card" /></td>
-    <td width="50%"><img src="assets/duolingo-card.svg" width="100%" alt="Duolingo Streak" /></td>
+    <td width="130" align="center" valign="middle">
+      <img src="https://github.com/Tharun4743.png" width="105" style="border-radius: 6px;" alt="Tharunkumar K — Full Stack Developer & AI Systems Engineer at V.S.B. Engineering College" title="Tharunkumar K — V.S.B. Engineering College (VSBEC)" itemprop="image" />
+    </td>
+    <td>
+      <h3 itemprop="name">Tharunkumar K</h3>
+      <p>
+        <b itemprop="jobTitle">Full Stack Developer & AI Systems Engineer</b> | <b>V.S.B. Engineering College (VSBEC)</b><br/>
+        🎓 <b>B.Tech in Information Technology</b> — <b>V.S.B. Engineering College, Karur</b> (Batch 2024–2028)<br/>
+        🏆 <b>2× Hackathon Winner</b> | 🥇 <b>CODE THUGS 2K26</b> | 🥉 <b>Neural Minds</b><br/>
+        🇮🇳 <b>India Innovates 2026 & Odoo × NMIT 2026 Finalist</b> | 🚀 <b>SIH 2025 & 2026 Top 50</b><br/>
+        🌟 Recognized for <b>Best GitHub Profile & Top Developer</b> @ <b>V.S.B. ENGINEERING COLLEGE</b>
+      </p>
+      <p>
+        🚀 <b>Top Flagship Engineering Projects:</b><br/>
+        • 🏛️ <b>TaskManager (VSBEC IT Vault)</b> — Institutional Task Governance & LeetCode/GitHub Sync &nbsp;<a href="https://github.com/Tharun4743/Taskmanager"><img src="https://img.shields.io/badge/Code-181717?style=flat-square&logo=github&logoColor=white" alt="Code" /></a>&nbsp;<a href="https://it-taskmanager.vercel.app/"><img src="https://img.shields.io/badge/Live_Demo-10B981?style=flat-square&logo=vercel&logoColor=white" alt="Live Demo" /></a><br/>
+        • 🧠 <b>AURA</b> — Air-Gapped Local Multimodal RAG Engine & Offline AI Assistant &nbsp;<a href="https://github.com/Tharun4743/AURA"><img src="https://img.shields.io/badge/Code-181717?style=flat-square&logo=github&logoColor=white" alt="Code" /></a><br/>
+        • 🪖 <b>Smart Helmet IoT</b> — SIH Top 50 Dual-Unit Motorcycle Accident Prevention System &nbsp;<a href="https://github.com/Tharun4743/AGILE-INNOVATORS-smart-helmet-"><img src="https://img.shields.io/badge/Code-181717?style=flat-square&logo=github&logoColor=white" alt="Code" /></a>
+      </p>
+      <p>
+        <a href="https://tharunkumark4743.netlify.app/"><img src="https://img.shields.io/badge/Portfolio-0284c7?style=flat-square&logo=googlechrome&logoColor=white" alt="Portfolio" /></a>&nbsp;
+        <a href="https://github.com/Tharun4743"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" /></a>&nbsp;
+        <a href="https://www.linkedin.com/in/tharunkumark4743"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>&nbsp;
+        <a href="https://leetcode.com/u/Tharunkumar__K/"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=flat-square&logo=leetcode&logoColor=white" alt="LeetCode" /></a>&nbsp;
+        <a href="mailto:tharunkumark42007@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>
+      </p>
+    </td>
   </tr>
 </table>
-```
-
----
-
-## 🤖 One-Click AI / Antigravity Prompt
-
-Want an AI coding assistant (like **Google Antigravity**, **Cursor**, **ChatGPT**, or **Claude**) to automatically set up and enhance your profile repository with this action?
-
-Copy and paste this prompt into your assistant:
-
-```text
-Please build and upgrade my GitHub Profile Magic Repository (username/username) into a stunning, world-class developer profile.
-
-STRICT INSTRUCTION:
-Do NOT write custom SVG generators, headless scrapers, or ad-hoc scripts from scratch.
-You MUST strictly configure and use the official published GitHub Marketplace Action: `Tharun4743/github-profile-visualizer@v1`.
-
-Requirements:
-1. Create/update `.github/workflows/profile-visualizers.yml` using `uses: Tharun4743/github-profile-visualizer@v1` with `visualizers: 'all'` and `theme: 'ocean-light'` (or your preferred theme).
-2. Configure my platform usernames (GitHub, LeetCode, GeeksforGeeks, HackerRank, Duolingo) in the action parameters.
-3. Update `README.md` to embed the generated 3D City (`profile-3d-city.svg`), Executive Summary (`executive-summary.svg`), Commit Velocity Wave, Skills Radar, Coding Habits, Language Matrix, GitHub Stats, and Multi-Platform Cards inside clean responsive tables.
-4. Verify that all SVGs sync cleanly into `assets/` on every push and scheduled run.
-```
-
----
-
-## ⚙️ Configuration Inputs & Options
-
-| Input | Description | Default |
-| :--- | :--- | :--- |
-| `username` | Target GitHub username | `${{ github.repository_owner }}` |
-| `visualizers`| Choice of visualizers: `'all'` or comma-separated list (`'3d-city,activity,habits,languages,leetcode,gfg,hackerrank,duolingo,achievements,velocity,radar,summary,stats'`) | `'all'` |
-| `theme` | Built-in palette: `ocean-light`, `pearl-neon`, `solar-light`, `cyberpunk`, `emerald`, `tokyonight`, `dracula`, `synthwave` | `'pearl-neon'` |
-| `custom-colors` | 5 comma-separated hex codes for custom tower levels | `''` |
-| `custom-bg` | Custom canvas background hex color | `''` |
-| `transparent` | Render with transparent background for seamless integration (`true`/`false`) | `'false'` |
-| `border-radius`| Corner radius in pixels (`0`, `8`, `14`, `20`) | `''` |
-| `show-border` | Display card borders (`true`/`false`) | `'true'` |
-| `title` | Custom header title for the 3D City | `⚡ {username}'s 3D Contribution City` |
-| `height-scale`| Multiplier for 3D tower elevation (`1.0`, `1.5`, `2.0`) | `'1.0'` |
-| `animate` | Enable neon lighting reflection animation (`true`/`false`) | `'true'` |
-| `year` | Specific calendar year (e.g. `2025`) or `'last-year'` | `'last-year'` |
-| `leetcode-username`| LeetCode handle for problem solving telemetry | `${{ github.repository_owner }}` |
-| `gfg-username` | GeeksforGeeks handle for problem solving telemetry | `${{ github.repository_owner }}` |
-| `hackerrank-username`| HackerRank handle for badges and achievements | `${{ github.repository_owner }}` |
-| `duolingo-username`| Duolingo handle for streak and course telemetry | `${{ github.repository_owner }}` |
-| `output-dir` | Output folder where SVGs will be saved | `'assets'` |
-| `filename` | Output filename for primary 3D city SVG | `'profile-3d-city.svg'` |
-
----
-
-## 💻 CLI Usage
-
-You can also run the visualizer directly from your terminal or CI runner:
-
-```bash
-# Generate all visualizers in White Ocean Light theme
-npx github-profile-visualizer --username Tharun4743 --visualizers all --theme ocean-light --output ./assets
-
-# Generate specific cards with custom border radius
-npx github-profile-visualizer --username Tharun4743 --visualizers "stats,velocity,radar,summary" --border-radius 16
-
-# Generate Cyberpunk Neon theme
-npx github-profile-visualizer --username Tharun4743 --theme cyberpunk --output ./assets
-```
-
----
 
 ## 📄 License
 
